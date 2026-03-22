@@ -1,0 +1,29 @@
+[package]
+name = "kantei-cli"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.91.0"
+license = "MIT"
+authors = ["pleme-io"]
+repository = "https://github.com/pleme-io/kantei-cli"
+description = "CLI compliance runner for kantei — run GrapheneOS/CIS/STIG profiles against Android devices"
+
+[[bin]]
+name = "kantei"
+path = "src/main.rs"
+
+[dependencies]
+kantei = { git = "https://github.com/pleme-io/kantei" }
+kantei-android = { git = "https://github.com/pleme-io/kantei-android" }
+clap = { version = "4", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+
+[lints.clippy]
+pedantic = "warn"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+strip = true
