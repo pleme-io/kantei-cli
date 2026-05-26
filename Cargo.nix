@@ -2019,7 +2019,7 @@ rec {
       };
       "kantei-cli" = rec {
         crateName = "kantei-cli";
-        version = "0.1.0";
+        version = "0.1.1";
         edition = "2024";
         crateBin = [
           {
